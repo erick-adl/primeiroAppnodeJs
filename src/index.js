@@ -11,8 +11,7 @@ app.get('/', (req, res) => {
     res.send('OK!');
 });
 
-require('./controllers/authController')(app);
-require('./controllers/projectController')(app);
+require('./app/controllers/index')(app);
 
 var os = require('os');
 var ifaces = os.networkInterfaces();

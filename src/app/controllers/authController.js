@@ -16,6 +16,12 @@ router.post('/register', async(req, res) => {
 
     try{
 
+        const parts = email.split('@')
+        var [alias , domain] = parts;
+
+        if(domain.includes("gmail"))
+            alias = alias.split('.').join('');
+
         if(await User.findOne({email})){
             return res.status(400).send({error: 'User already existis'});    
         }
